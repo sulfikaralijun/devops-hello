@@ -27,3 +27,15 @@ jobs:
           context: .
           push: true
           tags: alijundev/devops-hello:latest
+      - name: 🚀 Deploy ke GCP via SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            docker pull alijundev/devops-hello:latest
+            docker stop hello || true
+            docker rm hello || true
+            docker run -d --name hello -p 3000:3000 alijundev/devops-hello:latest
+
