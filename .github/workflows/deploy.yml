@@ -44,6 +44,7 @@ jobs:
           host: ${{ secrets.VM_HOST }}
           username: ${{ secrets.VM_USER }}
           key: ${{ secrets.VM_SSH_KEY }}
+          envs: PROJECT_ID,REGION,REPO,IMAGE_NAME,CONTAINER_NAME,APP_PORT,PUBLIC_PORT
           script: |
             docker stop $CONTAINER_NAME || true
             docker rm $CONTAINER_NAME || true
