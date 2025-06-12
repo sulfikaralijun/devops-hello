@@ -9,7 +9,10 @@ app.get("/", (req, res) => {
 
 app.get("/ping", (req, res) => {
   res.json({ message: "pong" });
-})
+});
+app.get("/pong", (req, res) => {
+  res.json({ message: "ping" });
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
