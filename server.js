@@ -7,13 +7,6 @@ app.get("/", (req, res) => {
   res.json({ message: "Hello Devops" });
 });
 
-app.get("/ping", (req, res) => {
-  res.json({ message: "pong" });
-});
-app.get("/pong", (req, res) => {
-  res.json({ message: "ping" });
-});
-
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
