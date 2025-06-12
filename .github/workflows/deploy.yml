@@ -49,5 +49,6 @@ jobs:
             docker stop $CONTAINER_NAME || true
             docker rm $CONTAINER_NAME || true
             docker pull $REGION-docker.pkg.dev/$PROJECT_ID/$REPO/$IMAGE_NAME:latest
+            docker image prune -f
             docker run -d --name $CONTAINER_NAME -p $PUBLIC_PORT:$APP_PORT $REGION-docker.pkg.dev/$PROJECT_ID/$REPO/$IMAGE_NAME:latest
 
